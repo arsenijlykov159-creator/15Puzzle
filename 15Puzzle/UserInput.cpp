@@ -12,6 +12,7 @@ namespace Input {
 		return false;
 	}
 
+
 	char getCommandFromUser() {
 		while (true) {
 			char input{};
@@ -26,5 +27,15 @@ namespace Input {
 		}
 	}
 
+
+	Direction toDirectional(char user_input) {
+		switch (user_input) {
+		case 'w': return Direction{ Direction::Dir::up };
+		case 'a': return Direction{ Direction::Dir::left };
+		case 's': return Direction{ Direction::Dir::down };
+		case 'd': return Direction{ Direction::Dir::down };
+		default: return Direction{ Direction::Dir::unknown };
+		}
+	}
 
 }

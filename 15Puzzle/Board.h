@@ -22,9 +22,9 @@ private:
 
 public:
 
-	constexpr Board();
+	Board();
 
-	constexpr const Tile* operator[](Size index) const;
+	const Tile* operator[](Size index) const;
 
 	friend std::ostream& operator<<(std::ostream& out, const Board& board);
 

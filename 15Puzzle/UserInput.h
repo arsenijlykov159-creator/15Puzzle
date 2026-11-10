@@ -4,6 +4,7 @@
 #include <iostream>
 #include <array>
 #include <limits>
+#include "Direction.h"
 
 
 namespace Input {
@@ -18,6 +19,7 @@ namespace Input {
 
 	char getCommandFromUser();
 
+	Direction toDirectional(char user_input);
 
 }
 

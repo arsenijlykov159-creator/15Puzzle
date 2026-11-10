@@ -1,7 +1,7 @@
 #include "Board.h"
 
 
-constexpr Board::Board() {
+Board::Board() {
 	for (Size i{ 0 }; i < tileCount - 1; ++i) {
 		m_data[i] = Tile{ static_cast<Tile::Data>(i + 1) };
 	}
@@ -10,7 +10,7 @@ constexpr Board::Board() {
 }
 
 
-constexpr const Tile* Board::operator[](Size index) const {
+const Tile* Board::operator[](Size index) const {
 	assert(index < rowCount && "Index is too large!");
 
 	return &m_data[index * rowCount];
