@@ -152,6 +152,7 @@
     <ClInclude Include="Point.h" />
     <ClInclude Include="Rand.h" />
     <ClInclude Include="Tile.h" />
+    <ClInclude Include="Timer.h" />
     <ClInclude Include="UserInput.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
