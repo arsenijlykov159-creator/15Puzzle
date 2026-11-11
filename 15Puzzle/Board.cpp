@@ -17,7 +17,6 @@ const Tile* Board::operator[](Size index) const {
 }
 
 
-
 std::ostream& operator<<(std::ostream& out, const Board& board) {
 	for (Board::Size i{ 0 }; i < board.consoleLines; ++i) {
 		out << '\n';
@@ -32,4 +31,22 @@ std::ostream& operator<<(std::ostream& out, const Board& board) {
 	}
 
 	return out;
+}
+
+
+bool Board::moveTile(const Direction& d) {
+	Point current_clear_point{ getClearPoint() };
+	Point next_point{ current_clear_point.getAdjacentPoint(-d) };
+
+	if (!isInBoard(next_point)) return false;
+	else {
+		std::cout << current_clear_point << '\n';
+		auto coordinates_clear_point{ current_clear_point.getIndexes() };
+		auto coordinates_next_point{ next_point.getIndexes() };
+
+		m_data[coordinates_clear_point.second * rowCount + coordinates_clear_point.first] = m_data[coordinates_next_point.second * rowCount + coordinates_next_point.first];
+		m_data[coordinates_next_point.second * rowCount + coordinates_next_point.first] = Tile{ 0 };
+	}
+
+	return true;
 }

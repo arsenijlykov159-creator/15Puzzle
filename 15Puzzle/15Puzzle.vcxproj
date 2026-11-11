@@ -142,12 +142,14 @@
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="Direction.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Point.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="UserInput.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Board.h" />
     <ClInclude Include="Direction.h" />
+    <ClInclude Include="Point.h" />
     <ClInclude Include="Rand.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="UserInput.h" />

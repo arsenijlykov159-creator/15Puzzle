@@ -17,10 +17,6 @@ public:
 		max_Directions,
 	};
 
-	
-
-
-
 private:
 	Dir m_direction{};
 
@@ -54,7 +50,9 @@ public:
 	//	}
 	//}
 
-	constexpr explicit Direction(Dir data) : m_direction{ data } {}
+	constexpr Direction(Dir data) : m_direction{ data } {}
+
+	constexpr Dir getDirection() const { return m_direction; }
 
 	Direction operator-() const;
 

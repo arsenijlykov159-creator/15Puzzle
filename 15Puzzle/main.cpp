@@ -2,7 +2,7 @@
 #include "UserInput.h"
 #include "Board.h"
 #include "Direction.h"
-
+#include "Point.h"
 
 
 
@@ -11,13 +11,9 @@ int main() {
 	Board board{};
 	std::cout << board << '\n';
 
-	std::cout << Direction::rand() << '\n';
-	std::cout << Direction::rand() << '\n';
-	std::cout << Direction::rand() << '\n';
-	std::cout << Direction::rand() << '\n';
-
 	while (true) {
 
+		std::cout << "Enter a move: ";
 		char input{ Input::getCommandFromUser() };
 
 		if (input == 'q') {
@@ -25,7 +21,32 @@ int main() {
 			break;
 		}
 
-		std::cout << "Valid command: " << input << '\n';
+		using enum Direction::Dir;
+
+		Direction::Dir current_direction{};
+
+		switch (input) {
+		case 'w': 
+			current_direction = up;
+			break;
+		case 'a':
+			current_direction = left;
+			break;
+		case 's':
+			current_direction = down;
+			break;
+		case 'd':
+			current_direction = right;
+			break;
+		default:
+			current_direction = unknown;
+			break;
+		}
+
+
+		if (!board.moveTile(current_direction)) std::cout << "aaaaaaa\n";
+
+		std::cout << board << '\n';
 	}
 
 

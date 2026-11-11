@@ -14,7 +14,7 @@ Direction Direction::operator-() const {
 
 
 Direction Direction::rand() {
-	return Direction{ static_cast<Dir>(Rand::get(1, 4)) };
+	return Direction{ static_cast<Dir>(Rand::get(1, Dir::max_Directions - 1)) };
 }
 
 
