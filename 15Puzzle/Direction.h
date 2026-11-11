@@ -29,6 +29,7 @@ private:
 		default: return "unknown";
 		}
 	}
+	
 
 public:
 	//constexpr explicit Direction(char user_input) {
@@ -55,6 +56,16 @@ public:
 	constexpr Dir getDirection() const { return m_direction; }
 
 	Direction operator-() const;
+
+	static Dir convertToDir(char input) {
+		switch (input) {
+		case 'w': return up;
+		case 'a': return  left;
+		case 's': return down;
+		case 'd': return right;
+		default: return unknown;
+		}
+	}
 
 	static Direction rand();
 

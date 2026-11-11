@@ -40,12 +40,30 @@ bool Board::moveTile(const Direction& d) {
 
 	if (!isInBoard(next_point)) return false;
 	else {
-		std::cout << current_clear_point << '\n';
 		auto coordinates_clear_point{ current_clear_point.getIndexes() };
 		auto coordinates_next_point{ next_point.getIndexes() };
 
 		m_data[coordinates_clear_point.second * rowCount + coordinates_clear_point.first] = m_data[coordinates_next_point.second * rowCount + coordinates_next_point.first];
 		m_data[coordinates_next_point.second * rowCount + coordinates_next_point.first] = Tile{ 0 };
+	}
+
+	return true;
+}
+
+
+void Board::randomBoard() {
+	for (std::size_t _{ 0 }; _ < 1000; ++_) {
+		moveTile(Direction::rand());
+	}
+}
+
+
+
+bool Board::operator==(const Board& b) const {
+	for (Size i{ 0 }; i < rowCount; ++i) {
+		for (Size j{ 0 }; j < rowCount; ++j) {
+			if ((*this)[i][j] != b[i][j]) return false;
+		}
 	}
 
 	return true;

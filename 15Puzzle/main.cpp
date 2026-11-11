@@ -9,6 +9,7 @@
 int main() {
 
 	Board board{};
+	board.randomBoard();
 	std::cout << board << '\n';
 
 	while (true) {
@@ -23,30 +24,15 @@ int main() {
 
 		using enum Direction::Dir;
 
-		Direction::Dir current_direction{};
-
-		switch (input) {
-		case 'w': 
-			current_direction = up;
-			break;
-		case 'a':
-			current_direction = left;
-			break;
-		case 's':
-			current_direction = down;
-			break;
-		case 'd':
-			current_direction = right;
-			break;
-		default:
-			current_direction = unknown;
-			break;
-		}
-
+		Direction::Dir current_direction{Direction::convertToDir(input)};
 
 		if (!board.moveTile(current_direction)) std::cout << "aaaaaaa\n";
 
 		std::cout << board << '\n';
+		if (board.isBoardCorrect()) {
+			std::cout << "\n\n__________You won!!!__________\n\n";
+			break;
+		}
 	}
 
 

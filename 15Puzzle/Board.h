@@ -25,7 +25,7 @@ private:
 	Point getClearPoint() const {
 		for (Size i{ 0 }; i < rowCount; ++i) {
 			for (Size j{ 0 }; j < rowCount; ++j) {
-				if (m_data[i * rowCount + j].isEmpty()) return Point{ i, j };
+				if (m_data[i * rowCount + j].isEmpty()) return Point{ j, i };
 			}
 		}
 
@@ -35,8 +35,8 @@ private:
 
 	bool isInBoard(const Point& p) {
 		auto coordinates{ p.getIndexes() };
-		std::cout << coordinates.first << ' ' << coordinates.second << '\n';
-		std::cout << ((coordinates.first < rowCount - 1) && (coordinates.first >= 0) && (coordinates.second < rowCount - 1) && (coordinates.second >= 0)) << '\n';
+		//std::cout << coordinates.first << ' ' << coordinates.second << '\n';
+		//std::cout << ((coordinates.first < rowCount - 1) && (coordinates.first >= 0) && (coordinates.second < rowCount - 1) && (coordinates.second >= 0)) << '\n';
 		return (coordinates.first <= rowCount - 1 && coordinates.first >= 0 && coordinates.second <= rowCount - 1 && coordinates.second >= 0);
 	}
 
@@ -51,6 +51,12 @@ public:
 	
 
 	bool moveTile(const Direction& d);
+
+	void randomBoard();
+
+	bool operator==(const Board& b) const;
+
+	bool isBoardCorrect() const { return (*this == Board{}); }
 
 };
 
